@@ -1,0 +1,60 @@
+.card-camera {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .camera-container {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  }
+  
+  .camera-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .label-custom {
+    color: #10446b;
+    font-weight: bold;
+    font-size: 1.6rem; /* Tamaño de la fuente más grande */
+  }
+
+  .input-custom {
+    font-size: 1.2rem; /* Tamaño de la fuente más grande */
+    font-weight: bold; /* Texto en negritas */
+  }
+
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  
+
+  

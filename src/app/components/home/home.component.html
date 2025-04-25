@@ -1,0 +1,99 @@
+<!-- Indicador de carga -->
+<div class="loading-overlay" *ngIf="isLoading">
+  <div class="spinner"></div>
+</div>
+
+
+
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <h4 class="text-center mb-4">Aviso de privacidad integral para registro biométrico</h4>
+
+        <p>
+          La Dirección de Capital Humano de Grupo MC y filiales, con domicilio en <strong>Central 211, Parque industrial 2000, Toluca de Lerdo, Estado de México</strong>, 
+          es responsable del tratamiento de los datos personales que nos proporcione para este Registro Biométrico.
+        </p>
+
+        <h5 class="mt-4">1. Datos personales que se recaban y finalidad</h5>
+        <p>
+          Los datos personales se recaban con la finalidad de registrar la asistencia de los colaboradores que laboran en modalidad teletrabajo, 
+          lo cual permite identificar la persona que está conectada, horarios de labores y actividades que realiza.
+        </p>
+
+        <h5 class="mt-4">2. Los datos personales que se recaban</h5>
+        <ul>
+          <li>Imagen de reconocimiento facial</li>
+          <li>Nombre completo y número de colaborador</li>
+        </ul>
+        <p>
+          Los datos sensibles que se recaban, consistentes en datos biométricos, serán tratados ajustándose a lo dispuesto en los artículos de la 
+          Ley de Protección de Datos Personales.
+        </p>
+
+        <h5 class="mt-4">3. Transferencia de datos personales</h5>
+        <p>
+          No se realizarán transferencias de datos personales que requieran consentimiento del titular sin que se cuente con éste, conforme a lo 
+          establecido en la Ley de Protección de Datos Personales.
+        </p>
+
+        <h5 class="mt-4">4. Cambios al aviso de privacidad</h5>
+        <p>
+          En caso de que existan cambios en este aviso de privacidad, lo haremos de su conocimiento en el portal de Eurosoft.
+        </p>
+        
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container py-4 animated fadeIn fast">
+  <div class="row justify-content-center align-items-md-stretch card-camera">
+    <div class="col-md-8">
+      <form [formGroup]="form">
+        <div class="mb-3">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Aviso de Privacidad
+          </button>
+        </div>
+        <div class="mb-3">
+          <label for="employeeNumber" class="form-label label-custom">Número de empleado</label>
+          <input type="text" class="form-control input-custom" id="employeeNumber" formControlName="employeeNumber" placeholder="Ingrese su número de empleado">
+          <div *ngIf="form.controls['employeeNumber'].invalid && (form.controls['employeeNumber'].dirty || form.controls['employeeNumber'].touched)" class="text-danger mt-2">
+            El número de empleado es requerido y debe ser solo números.
+          </div>
+        </div>
+
+        <div class="card text-bg-dark rounded-3">
+          <div class="card-body text-center">
+            <h3 class="card-title"></h3>
+            <div class="camera-container">
+              <video #videoElement autoplay></video>
+            </div>
+            <!-- <button (click)="showMessage()">Mostrar mensaje</button> -->
+
+            <button (click)="captureImage()" class="btn btn-outline-light mt-3" type="button">Registrar Acceso</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
