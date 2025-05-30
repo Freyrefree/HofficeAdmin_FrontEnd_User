@@ -1,5 +1,5 @@
-# AppBSiblePage
-
+# HOffice Admin
+Proyecto para tomar aaceso de asistencia de home office para el empleado
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.3.
 
 ## Development server
