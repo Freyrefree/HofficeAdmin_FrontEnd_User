@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+// Import the API_URLS constant if needed
+import { API_URLS } from '../Config/api-urls';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ApiCompareImageService {
-  // private apiUrl = 'http://192.168.1.10:9100/api/AWS_Rekognition_FaceCompare';
-  private apiUrl = 'https://g-mc.mx:8105/api/AWS_Rekognition_FaceCompare';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -16,6 +17,6 @@ export class ApiCompareImageService {
     formData.append('originalPicture', originalPicture);
     formData.append('pictureToCompare', pictureToCompare);
 
-    return this.httpClient.post(this.apiUrl, formData);
+    return this.httpClient.post(API_URLS.API_URL_FACE_COMPARE, formData);
   }
 }

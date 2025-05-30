@@ -1,19 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+// Import the API_URLS constant if needed
+import { API_URLS } from '../Config/api-urls';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiGetDatosFotografiaBaseService {
 
-  // private apiUrl = 'http://192.168.1.14:8000/api/obtenerFoto/';
-  private apiUrl = 'https://g-mc.mx:8003/api/obtenerFoto/';
+
 
   constructor(private httpClient: HttpClient) { }
 
   getPathImage(rfc: string): Observable<{ message: string }> {
-    const url = `${this.apiUrl}${rfc}`;
+    const url = `${API_URLS.API_URL_GET_BASE_PHOTO}${rfc}`;
     return this.httpClient.get<{ message: string }>(url);
   }
 }

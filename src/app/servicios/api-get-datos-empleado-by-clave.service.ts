@@ -2,18 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Empleado } from '../interfaces/empleado.model';
+// Import the API_URLS constant if needed
+import { API_URLS } from '../Config/api-urls';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiGetDatosEmpleadoByClaveService {
-
-  // private apiUrl = 'http://192.168.1.10:9100/api/EmpleadosByClaveNomina';
-  // private apiUrl = 'https://192.168.1.10:9102/api/EmpleadosByClaveNomina';
-  private apiUrl = 'https://g-mc.mx:8105/api/EmpleadosByClaveNomina';
-  
-
-
 
 
   constructor(private httpClient: HttpClient) { }
@@ -23,7 +18,7 @@ export class ApiGetDatosEmpleadoByClaveService {
     formData.append('claveEmpleado', claveEmpleado);
     
     // return this.httpClient.post(this.apiUrl, formData);
-    return this.httpClient.post<Empleado[]>(this.apiUrl, formData);
+    return this.httpClient.post<Empleado[]>(API_URLS.API_URL_GET_EMPLOYEE_BY_CLAVE, formData);
 
   }
 }
